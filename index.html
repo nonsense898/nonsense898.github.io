@@ -91,6 +91,7 @@
   .b-cx{background:rgba(23,191,165,.14);color:#4fdcc4;border:1px solid rgba(23,191,165,.3)}
   .b-ql{background:rgba(168,120,255,.14);color:#c4a5ff;border:1px solid rgba(168,120,255,.3)}
   .b-cp{background:rgba(255,176,60,.14);color:#ffca7a;border:1px solid rgba(255,176,60,.3)}
+  .b-ro{background:rgba(45,212,191,.14);color:#5eead4;border:1px solid rgba(45,212,191,.3)}
   .info h3{font-size:clamp(26px,3.6vw,34px);font-weight:700;margin:16px 0 6px}
   .info .tag{color:var(--muted-2);font-size:14px;font-weight:500;margin-bottom:14px}
   .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
@@ -196,7 +197,7 @@
   <section class="hero wrap">
     <span class="pill"><span class="live"></span> Available for freelance &amp; product work</span>
     <h1>Android developer building <span class="accent">fast, AI-powered</span> mobile apps.</h1>
-    <p class="lead">I build production-ready apps end-to-end in Kotlin &amp; Jetpack Compose — from on-device AI and clean architecture to pixel-tight UI. RepMotion, Calorix, QLodi and CashPilot are finished and ready to ship.</p>
+    <p class="lead">I build production-ready apps end-to-end in Kotlin &amp; Jetpack Compose — from on-device AI and clean architecture to pixel-tight UI. RepMotion, Calorix, Roomly AI and QLodi are finished and ready to ship.</p>
     <div class="actions">
       <a class="btn primary" href="#work">View my apps →</a>
       <a class="btn ghost" href="mailto:kolodii841@gmail.com">Get in touch</a>
@@ -422,6 +423,14 @@ createApp({
           images:['assets/calorix/cx1.png','assets/calorix/cx2.png','assets/calorix/cx3.png','assets/calorix/cx4.png']
         },
         {
+          name:'Roomly AI', badge:'Roomly AI — Interior Design', badgeClass:'b-ro', accent:'#2dd4bf',
+          domain:'AI · Interior Design', tag:'Redesign any room from a single photo',
+          desc:'Upload a photo of your room and Roomly redesigns it in seconds. AI reads the space, applies the style you pick — Scandinavian, Modern, Minimal, Loft — and returns colors, furniture and a full concept you can save and share.',
+          features:['Photo → full redesign in seconds','Style picker: Modern · Scandinavian · Minimal · Loft','AI score + color & furniture recommendations','Save, revisit and share ideas — even offline'],
+          chips:['Kotlin','Jetpack Compose','Generative AI','MVVM','Room'],
+          images:['assets/roomly/ro1.png','assets/roomly/ro2.png','assets/roomly/ro3.png','assets/roomly/ro4.png','assets/roomly/ro5.png','assets/roomly/ro6.png']
+        },
+        {
           name:'QLodi', badge:'QLodi — Fintech Platform', badgeClass:'b-ql', accent:'#c4a5ff',
           glyph:'Q', glyphBg:'rgba(168,120,255,.16)',
           domain:'Fintech · SaaS', tag:'3 products · 1 platform · built in Ukraine',
@@ -435,14 +444,6 @@ createApp({
           ratio:'1 / 1',
           images:['assets/qlodi/q1.png','assets/qlodi/q2.png','assets/qlodi/q3.png','assets/qlodi/q4.png','assets/qlodi/q5.png'],
           phNote:'Business + personal modes in one workspace. Full walkthrough and screens available on request.'
-        },
-        {
-          name:'CashPilot', badge:'CashPilot — Finance', badgeClass:'b-cp', accent:'#ffca7a',
-          glyph:'$', glyphBg:'rgba(255,176,60,.16)',
-          domain:'Fintech · Personal Finance', tag:'Personal money & expense tracking',
-          desc:'A lightweight finance copilot for tracking spending, budgets and cash flow — clear numbers, fast entry, and insights that show exactly where the money goes.',
-          features:[], chips:['Kotlin','Compose','Charts','DataStore'],
-          images:[], phNote:'Budgets, expenses and cash-flow insights. Full walkthrough and screens available on request.'
         }
       ]
     };
