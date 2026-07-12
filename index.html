@@ -101,6 +101,14 @@
   .feat{list-style:none;margin:22px 0 24px;display:flex;flex-direction:column;gap:10px}
   .feat li{display:flex;gap:11px;align-items:flex-start;font-size:15px}
   .feat li svg{flex:none;margin-top:3px}
+  .products{display:flex;flex-direction:column;gap:16px;margin:6px 0 22px}
+  .product{border-left:2px solid var(--line-2);padding-left:16px}
+  .phead{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:5px}
+  .pdot{width:8px;height:8px;border-radius:50%;flex:none}
+  .pname{font-family:'Space Grotesk';font-weight:600;font-size:16px}
+  .ptag{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--muted-2);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+  .pdesc{color:var(--muted);font-size:14.5px;line-height:1.55;max-width:52ch}
   .chips{display:flex;flex-wrap:wrap;gap:8px}
   .chip{font-size:12.5px;color:var(--muted);border:1px solid var(--line);background:var(--card);padding:5px 11px;border-radius:8px}
   .dl-row{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
@@ -217,13 +225,23 @@
             <span class="mpill" :style="{color:app.accent,borderColor:app.accent+'55'}">{{app.domain}}</span>
             <span class="mpill ghost">Full ownership · idea → release</span>
           </div>
-          <p class="desc">{{app.desc}}</p>
-          <ul class="feat" v-if="app.features.length">
+          <p class="desc" v-if="app.desc">{{app.desc}}</p>
+          <ul class="feat" v-if="app.features && app.features.length">
             <li v-for="f in app.features" :key="f">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" :stroke="app.accent" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
               {{f}}
             </li>
           </ul>
+          <div class="products" v-if="app.products">
+            <div class="product" v-for="p in app.products" :key="p.name">
+              <div class="phead">
+                <span class="pdot" :style="{background:app.accent}"></span>
+                <span class="pname">{{p.name}}</span>
+                <span class="ptag">{{p.tag}}</span>
+              </div>
+              <p class="pdesc">{{p.desc}}</p>
+            </div>
+          </div>
           <div class="chips"><span class="chip" v-for="c in app.chips" :key="c">{{c}}</span></div>
           <div class="dl-row">
             <a v-if="app.apk" class="btn dl" :href="app.apk" download>
@@ -404,10 +422,15 @@ createApp({
           images:['assets/calorix/cx1.png','assets/calorix/cx2.png','assets/calorix/cx3.png','assets/calorix/cx4.png']
         },
         {
-          name:'QLodi', badge:'QLodi — Business & Personal', badgeClass:'b-ql', accent:'#c4a5ff',
+          name:'QLodi', badge:'QLodi — Fintech Platform', badgeClass:'b-ql', accent:'#c4a5ff',
           glyph:'Q', glyphBg:'rgba(168,120,255,.16)',
-          domain:'Productivity / SaaS', tag:'Two-in-one productivity suite · Cross-platform',
-          desc:'A dual-mode organizer that switches between a business workspace and a personal life hub — clients, tasks and finances on one side, everyday planning on the other. Built with Kotlin Multiplatform and Compose Multiplatform to share logic and UI across Android and iOS.',
+          domain:'Fintech · SaaS', tag:'3 products · 1 platform · built in Ukraine',
+          desc:'One financial platform, three products sharing a single core — analytics, personal finance and full accounting that feed each other.',
+          products:[
+            {name:'Qlodi Business', tag:'Analytics & decisions', desc:'AI platform that turns P&L, bank statements and receipts into ready financial decisions in seconds — unit economics, runway and forecasts. A financial manager in your pocket for founders without a CFO.'},
+            {name:'Qlodi Personal', tag:'Personal finance', desc:'Turns income, expenses and bank statements into a clear picture of your personal finances — no spreadsheets, no manual bookkeeping. A personal financial analyst in your phone.'},
+            {name:'Qlodi CashPilot', tag:'Accounting engine', desc:'Full double-entry accounting across three jurisdictions (UA / EU / US) on one core — from a journal entry to a finished report. It doesn’t just log transactions, it feeds live data into Qlodi Business analytics — an autopilot for money, not an archive. Accounting + invoices + receivables as a system of record.'}
+          ],
           features:[], chips:['Kotlin Multiplatform','Compose Multiplatform','KMP','Room KMP','Coroutines'],
           ratio:'1 / 1',
           images:['assets/qlodi/q1.png','assets/qlodi/q2.png','assets/qlodi/q3.png','assets/qlodi/q4.png','assets/qlodi/q5.png'],
